@@ -10,5 +10,7 @@
 
     <string name="f_temperature">%d\u2103</string>
     <string name="f_wind_speed">%d m/s</string>
+    <string name="gps">Gps</string>
+    <string name="history_weather">history weather</string>
 
 </resources>

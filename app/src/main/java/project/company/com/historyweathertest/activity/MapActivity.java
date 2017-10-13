@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -67,11 +68,42 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     }
 
-    @OnClick(R.id.bt_history)
-    void clickBt(){
+    @OnClick(R.id.bt_gps)
+    void clickGps(){
         mMap.clear();
         LatLng position = new LatLng(latitude, longitude);
         Marker marker = mMap.addMarker(new MarkerOptions().position(position));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
+        getWeatherData(latitude,longitude);
+    }
+
+    @OnClick(R.id.bt_history)
+    void clickHistory(){
+        startActivity(new Intent(this,HistoryActivity.class));
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+
+        LatLng position = new LatLng(latitude, longitude);
+        mMap.addMarker(new MarkerOptions().position(position));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
+
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                Log.d("myLog", latLng.latitude + " lat123" );
+                mMap.clear();
+                LatLng position = new LatLng(latLng.latitude, latLng.longitude);
+                Marker marker = mMap.addMarker(new MarkerOptions().position(position));
+                getWeatherData(latLng.latitude,latLng.longitude);
+            }
+        });
+    }
+
+    private void getWeatherData(double latitude, double longitude){
         Call<City> getGpsCity = RetrofitMain.getApiInterface().getWeatherGPS(latitude,longitude);
         getGpsCity.enqueue(new Callback<City>() {
             @Override
@@ -87,17 +119,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
             }
         });
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-        Log.d("myLog", latitude + " lat" + longitude + "lon");
-
-        LatLng position = new LatLng(latitude, longitude);
-        mMap.addMarker(new MarkerOptions().position(position));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
     }
 
     private void checkPermissionGps() {
