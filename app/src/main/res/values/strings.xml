@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">HistoryWeatherTest</string>
+
+    <string name="title_location_permission">GPS Access </string>
+    <string name="text_location_permission">Restart and Allow GPS Access </string>
+    <string name="ok">OK</string>
+
+    <string name="temperature">Temperature: </string>
+    <string name="wind_speed">Wind Speed: </string>
+
+    <string name="f_temperature">%d\u2103</string>
+    <string name="f_wind_speed">%d m/s</string>
+
 </resources>

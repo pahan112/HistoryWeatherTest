@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="project.company.com.historyweathertest.activity.MapActivity">
+
+
+    <Button
+        android:id="@+id/bt_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+
+    <TextView
+        android:id="@+id/temperature_gps"
+        style="@style/WeatherTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/bt_history"
+        android:paddingStart="@dimen/main_padding"
+        android:paddingTop="@dimen/main_padding"
+        android:text="@string/temperature" />
+    <TextView
+        android:id="@+id/tv_temperature_gps"
+        style="@style/WeatherTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/temperature_gps"
+        android:paddingEnd="@dimen/main_padding"
+        android:paddingTop="@dimen/main_padding" />
+    <TextView
+        android:id="@+id/wind_speed_gps"
+        style="@style/WeatherTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/tv_temperature_gps"
+        android:paddingTop="@dimen/main_padding"
+        android:text="@string/wind_speed" />
+    <TextView
+        android:id="@+id/tv_wind_speed_gps"
+        style="@style/WeatherTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/wind_speed_gps"
+        android:paddingTop="@dimen/main_padding" />
+    <TextView
+        android:id="@+id/tv_city_gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/temperature_gps"
+        android:paddingStart="@dimen/main_padding"
+        android:layout_toEndOf="@+id/bt_history"
+        style="@style/WeatherTextStyle" />
+    <TextView
+        android:id="@+id/tv_weather_main_gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        style="@style/WeatherTextStyle"
+        android:layout_below="@+id/wind_speed_gps"
+        android:layout_toEndOf="@+id/tv_temperature_gps" />
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_below="@+id/tv_city_gps"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MapsActivity" />
+</RelativeLayout>
