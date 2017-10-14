@@ -40,8 +40,8 @@
         android:id="@+id/tv_history_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_above="@+id/temperature_max"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:fontFamily="sans-serif"
         android:gravity="center"
@@ -52,8 +52,8 @@
         style="@style/WeatherTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/temperature"
         android:layout_centerVertical="true"
+        android:drawableStart="@drawable/temperature"
         android:padding="@dimen/main_padding"
         android:text="@string/temperature_max" />
 
@@ -65,14 +65,15 @@
         android:layout_alignBaseline="@+id/temperature_max"
         android:layout_toEndOf="@+id/temperature_max"
         android:padding="@dimen/main_padding" />
+
     <TextView
         android:id="@+id/temperature_min"
         style="@style/WeatherTextStyle"
         android:layout_width="wrap_content"
-        android:drawableStart="@drawable/temperature"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_below="@+id/temperature_max"
+        android:layout_centerVertical="true"
+        android:drawableStart="@drawable/temperature"
         android:padding="@dimen/main_padding"
         android:text="@string/temperature_min" />
 
@@ -81,8 +82,8 @@
         style="@style/WeatherTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/main_padding"
         android:layout_alignBaseline="@+id/temperature_min"
-        android:layout_toEndOf="@+id/temperature_min" />
+        android:layout_toEndOf="@+id/temperature_min"
+        android:padding="@dimen/main_padding" />
 
 </RelativeLayout>
