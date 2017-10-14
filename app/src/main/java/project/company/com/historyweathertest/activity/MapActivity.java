@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -30,6 +29,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import project.company.com.historyweathertest.R;
+import project.company.com.historyweathertest.global.Constans;
 import project.company.com.historyweathertest.model.City;
 import project.company.com.historyweathertest.retrofit.RetrofitMain;
 import retrofit2.Call;
@@ -79,7 +79,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @OnClick(R.id.bt_history)
     void clickHistory(){
-        startActivity(new Intent(this,HistoryActivity.class));
+        if(mTextViewCity.getText().length()>0){
+            Intent intent = new Intent(this,HistoryActivity.class);
+            intent.putExtra(Constans.CITY_NAME,mTextViewCity.getText().toString());
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -94,7 +98,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
-                Log.d("myLog", latLng.latitude + " lat123" );
                 mMap.clear();
                 LatLng position = new LatLng(latLng.latitude, latLng.longitude);
                 Marker marker = mMap.addMarker(new MarkerOptions().position(position));

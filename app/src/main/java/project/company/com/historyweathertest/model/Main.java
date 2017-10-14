@@ -11,22 +11,21 @@ import java.io.Serializable;
 public class Main implements Serializable {
     @SerializedName("temp")
     private double mTemp;
+    @SerializedName("temp_max")
+    private double mTempMax;
+    @SerializedName("temp_min")
+    private double mTempMin;
 
-    @SerializedName("pressure")
-    private double mPressure;
+    public double getTempMin() {
+        return mTempMin;
+    }
 
-    @SerializedName("humidity")
-    private double mHumidity;
+    public double getTempMax() {
+        return mTempMax;
+    }
 
     public int getTemp() {
         return (int) mTemp;
     }
 
-    public int getPressure() {
-        return (int) mPressure;
-    }
-
-    public int getHumidity() {
-        return (int) mHumidity;
-    }
 }

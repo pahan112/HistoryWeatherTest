@@ -14,4 +14,6 @@ import retrofit2.http.Query;
 public interface ApiInterface {
     @GET("data/2.5/weather?units=metric")
     Call<City> getWeatherGPS(@NonNull @Query("lat") double lat, @Query("lon") double lon);
+    @GET("data/2.5/weather?units=metric")
+    Call<City> getWeatherHistory(@NonNull @Query("q") String query);
 }

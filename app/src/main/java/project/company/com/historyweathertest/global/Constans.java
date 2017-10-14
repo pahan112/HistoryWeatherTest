@@ -7,4 +7,5 @@ package project.company.com.historyweathertest.global;
 public class Constans {
     public static final String BASE_URL = "http://api.openweathermap.org/";
     public static final String API_KEY = "a9b4c91d85c72e0dba9cfe8d7fc02c9e";
+    public static final String CITY_NAME = "123";
 }
